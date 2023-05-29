@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import {
-  getUserFromLocalStorage,
   addUserToLocalStorage,
   removeUserFromLocalStorage,
 } from "../../utils/localStorage";
@@ -10,7 +9,7 @@ import { toast } from "react-toastify";
 const initialState = {
   isLoading: false,
   isSidebarOpen: false,
-  user: getUserFromLocalStorage(),
+  user: null,
 };
 
 export const registerUser = createAsyncThunk(
