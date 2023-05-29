@@ -9,7 +9,13 @@ const authenticateUser = require("./middlewares/authentication");
 
 dotenv.config();
 
-app.use(cors());
+const app = express();
+
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", true);
@@ -24,8 +30,6 @@ app.use((req, res, next) => {
   );
   next();
 });
-
-const app = express();
 
 app.use(express.json());
 
