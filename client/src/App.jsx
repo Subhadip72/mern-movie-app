@@ -50,8 +50,8 @@ const App = () => {
           <Route path="/reviews/:id" element={<EditReview />} />
           <Route path="/favourites" element={<Favorites />} />
         </Route>
-        <Route path="register" element={<Register />} />
-        <Route path="login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
