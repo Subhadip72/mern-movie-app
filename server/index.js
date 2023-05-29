@@ -33,6 +33,10 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
+app.get("/test", async (req, res) => {
+  res.status(200).send("hello backend is fine!");
+});
+
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/movies", authenticateUser, movieRouter);
 app.use("/api/v1/reviews", authenticateUser, reviewRouter);
