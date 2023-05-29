@@ -24,7 +24,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import axios from "axios";
 
-axios.defaults.baseURL = "https://mern-movie-app-liart.vercel.app/api/v1";
+axios.defaults.baseURL = "https://movieflix-vercel-mern.vercel.app/api/v1";
 
 const App = () => {
   return (
