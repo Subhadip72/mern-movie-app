@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { registerUser } from "../features/user/userSlice";
 import { LoginNav } from "../components";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [firstName, setFirstName] = useState("");
@@ -13,6 +14,10 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!firstName || !secondName || !email || !password) {
+      return toast.error("Field(s) cannot be empty!");
+    }
 
     dispatch(registerUser({ firstName, secondName, email, password }));
 

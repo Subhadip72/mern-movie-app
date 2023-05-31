@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
 import { editReview } from "../features/reviews/reviewSlice";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 const EditReview = () => {
   const { id } = useParams();
@@ -10,6 +11,10 @@ const EditReview = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
+    if (!comment) {
+      return toast.error("Empty comment is not accepted!");
+    }
+
     e.preventDefault();
     dispatch(
       editReview({

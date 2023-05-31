@@ -4,6 +4,7 @@ import { RxPaperPlane } from "react-icons/rx";
 import { getAllReviews, postReview } from "../features/reviews/reviewSlice";
 // import { AiFillDelete } from "react-icons/ai";
 import moment from "moment";
+import { toast } from "react-toastify";
 
 const Reviews = ({ movieDetails, tvSeriesDetails }) => {
   const { user } = useSelector((store) => store.user);
@@ -20,6 +21,10 @@ const Reviews = ({ movieDetails, tvSeriesDetails }) => {
   );
 
   const handleSubmit = () => {
+    if (!comment) {
+      return toast.error("Comment cannot be empty!");
+    }
+
     dispatch(
       postReview({
         movie: tvSeriesDetails
